@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33516.290
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SleepinManager", "SleepinManager\SleepinManager.csproj", "{DB37A9B9-9B3C-447E-9DCF-6EA2BBF96540}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DB37A9B9-9B3C-447E-9DCF-6EA2BBF96540}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB37A9B9-9B3C-447E-9DCF-6EA2BBF96540}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB37A9B9-9B3C-447E-9DCF-6EA2BBF96540}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB37A9B9-9B3C-447E-9DCF-6EA2BBF96540}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {04BBE64A-24AB-458F-B26A-45B4FC0651BF}
+	EndGlobalSection
+EndGlobal
