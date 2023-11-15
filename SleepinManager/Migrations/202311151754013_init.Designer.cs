@@ -7,13 +7,13 @@ namespace SleepinManager.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class create_initial_db : IMigrationMetadata
+    public sealed partial class init : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(create_initial_db));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(init));
         
         string IMigrationMetadata.Id
         {
-            get { return "202311151447009_create_initial_db"; }
+            get { return "202311151754013_init"; }
         }
         
         string IMigrationMetadata.Source

@@ -14,8 +14,8 @@ namespace SleepinManager.Entities
 
         [Required]
         [StringLength(50)]
-        public string Name { get; set; }
+        public string RoomTypeName { get; set; }
 
-        public virtual List<Room> Rooms { get; set; }
+        public virtual ICollection<Room> Rooms { get; set; }
     }
 }

@@ -7,17 +7,18 @@ using System.Threading.Tasks;
 
 namespace SleepinManager.Entities
 {
-    public class Room
+    public class Invoice
     {
         [Key]
-        public int RoomID { get; set; }
+        public int InvoiceID { get; set; }
         [Required]
-        public int RoomSize { get; set; }
+        public int Cost { get; set; }
         [Required]
-        public int ExtraBedCount { get; set; }
-        
+        public bool HasBeenPaid { get; set; }
         [Required]
-        public virtual RoomType RoomType { get; set; }
+        public bool HasBeenAnnulled { get; set; }
+
+
         public virtual ICollection<Booking> Bookings { get; set; }
     }
 }

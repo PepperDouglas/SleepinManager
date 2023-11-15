@@ -56,11 +56,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\Booking.cs" />
+    <Compile Include="Entities\Customer.cs" />
+    <Compile Include="Entities\Invoice.cs" />
     <Compile Include="Entities\Room.cs" />
     <Compile Include="Entities\RoomType.cs" />
-    <Compile Include="Migrations\202311151447009_create_initial_db.cs" />
-    <Compile Include="Migrations\202311151447009_create_initial_db.designer.cs">
-      <DependentUpon>202311151447009_create_initial_db.cs</DependentUpon>
+    <Compile Include="Migrations\202311151754013_init.cs" />
+    <Compile Include="Migrations\202311151754013_init.designer.cs">
+      <DependentUpon>202311151754013_init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202311151810035_init2.cs" />
+    <Compile Include="Migrations\202311151810035_init2.designer.cs">
+      <DependentUpon>202311151810035_init2.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Repository\ManagerContext.cs" />
@@ -73,8 +80,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Migrations\202311151447009_create_initial_db.resx">
-      <DependentUpon>202311151447009_create_initial_db.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202311151754013_init.resx">
+      <DependentUpon>202311151754013_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311151810035_init2.resx">
+      <DependentUpon>202311151810035_init2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
