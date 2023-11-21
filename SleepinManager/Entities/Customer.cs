@@ -28,5 +28,10 @@ namespace SleepinManager.Entities
         public string National_Identifier { get; set; }
 
         public virtual ICollection<Booking> Bookings { get; set; }
+
+
+        public override string ToString() {
+            return $"{FirstName} {SurName}";
+        }
     }
 }

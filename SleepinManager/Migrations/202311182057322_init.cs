@@ -11,17 +11,16 @@
                 "dbo.Bookings",
                 c => new
                     {
-                        BookingID = c.Int(nullable: false),
+                        BookingID = c.Int(nullable: false, identity: true),
                         StartDate = c.DateTime(nullable: false),
                         EndDate = c.DateTime(nullable: false),
+                        InvoiceID = c.Int(nullable: false),
                         Customer_CustomerID = c.Int(nullable: false),
                         Room_RoomID = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.BookingID)
                 .ForeignKey("dbo.Customers", t => t.Customer_CustomerID, cascadeDelete: true)
-                .ForeignKey("dbo.Invoices", t => t.BookingID)
                 .ForeignKey("dbo.Rooms", t => t.Room_RoomID, cascadeDelete: true)
-                .Index(t => t.BookingID)
                 .Index(t => t.Customer_CustomerID)
                 .Index(t => t.Room_RoomID);
             
@@ -43,12 +42,14 @@
                 "dbo.Invoices",
                 c => new
                     {
-                        InvoiceID = c.Int(nullable: false, identity: true),
+                        InvoiceID = c.Int(nullable: false),
                         Cost = c.Int(nullable: false),
                         HasBeenPaid = c.Boolean(nullable: false),
                         HasBeenAnnulled = c.Boolean(nullable: false),
                     })
-                .PrimaryKey(t => t.InvoiceID);
+                .PrimaryKey(t => t.InvoiceID)
+                .ForeignKey("dbo.Bookings", t => t.InvoiceID)
+                .Index(t => t.InvoiceID);
             
             CreateTable(
                 "dbo.Rooms",
@@ -78,12 +79,12 @@
         {
             DropForeignKey("dbo.Bookings", "Room_RoomID", "dbo.Rooms");
             DropForeignKey("dbo.Rooms", "RoomType_RoomTypeID", "dbo.RoomTypes");
-            DropForeignKey("dbo.Bookings", "BookingID", "dbo.Invoices");
+            DropForeignKey("dbo.Invoices", "InvoiceID", "dbo.Bookings");
             DropForeignKey("dbo.Bookings", "Customer_CustomerID", "dbo.Customers");
             DropIndex("dbo.Rooms", new[] { "RoomType_RoomTypeID" });
+            DropIndex("dbo.Invoices", new[] { "InvoiceID" });
             DropIndex("dbo.Bookings", new[] { "Room_RoomID" });
             DropIndex("dbo.Bookings", new[] { "Customer_CustomerID" });
-            DropIndex("dbo.Bookings", new[] { "BookingID" });
             DropTable("dbo.RoomTypes");
             DropTable("dbo.Rooms");
             DropTable("dbo.Invoices");

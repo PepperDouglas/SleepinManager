@@ -7,13 +7,13 @@ namespace SleepinManager.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class init2 : IMigrationMetadata
+    public sealed partial class moved_extra_beds2 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(init2));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(moved_extra_beds2));
         
         string IMigrationMetadata.Id
         {
-            get { return "202311151810035_init2"; }
+            get { return "202311211319432_moved_extra_beds2"; }
         }
         
         string IMigrationMetadata.Source

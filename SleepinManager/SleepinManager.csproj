@@ -61,17 +61,64 @@
     <Compile Include="Entities\Invoice.cs" />
     <Compile Include="Entities\Room.cs" />
     <Compile Include="Entities\RoomType.cs" />
-    <Compile Include="Migrations\202311151754013_init.cs" />
-    <Compile Include="Migrations\202311151754013_init.designer.cs">
-      <DependentUpon>202311151754013_init.cs</DependentUpon>
+    <Compile Include="Migrations\202311182057322_init.cs" />
+    <Compile Include="Migrations\202311182057322_init.designer.cs">
+      <DependentUpon>202311182057322_init.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202311151810035_init2.cs" />
-    <Compile Include="Migrations\202311151810035_init2.designer.cs">
-      <DependentUpon>202311151810035_init2.cs</DependentUpon>
+    <Compile Include="Migrations\202311182109512_init2.cs" />
+    <Compile Include="Migrations\202311182109512_init2.designer.cs">
+      <DependentUpon>202311182109512_init2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202311182124055_init3.cs" />
+    <Compile Include="Migrations\202311182124055_init3.designer.cs">
+      <DependentUpon>202311182124055_init3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202311202040167_update-somethings.cs" />
+    <Compile Include="Migrations\202311202040167_update-somethings.designer.cs">
+      <DependentUpon>202311202040167_update-somethings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202311211318442_moved_extra_beds.cs" />
+    <Compile Include="Migrations\202311211318442_moved_extra_beds.designer.cs">
+      <DependentUpon>202311211318442_moved_extra_beds.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202311211319432_moved_extra_beds2.cs" />
+    <Compile Include="Migrations\202311211319432_moved_extra_beds2.designer.cs">
+      <DependentUpon>202311211319432_moved_extra_beds2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202311211641214_time_of_creation_invoice.cs" />
+    <Compile Include="Migrations\202311211641214_time_of_creation_invoice.designer.cs">
+      <DependentUpon>202311211641214_time_of_creation_invoice.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Repository\BookingRepo.cs" />
+    <Compile Include="Repository\CustomerRepo.cs" />
+    <Compile Include="Repository\InvoiceRepo.cs" />
     <Compile Include="Repository\ManagerContext.cs" />
     <Compile Include="Repository\RoomRepo.cs" />
+    <Compile Include="Views\CustomerBookingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\CustomerBookingsForm.Designer.cs">
+      <DependentUpon>CustomerBookingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditBookingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\EditBookingForm.Designer.cs">
+      <DependentUpon>EditBookingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditCustomerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\EditCustomerForm.Designer.cs">
+      <DependentUpon>EditCustomerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EditInvoiceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\EditInvoiceForm.Designer.cs">
+      <DependentUpon>EditInvoiceForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,11 +127,50 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Migrations\202311151754013_init.resx">
-      <DependentUpon>202311151754013_init.cs</DependentUpon>
+    <Compile Include="Views\BookingDetailsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\BookingDetailsForm.Designer.cs">
+      <DependentUpon>BookingDetailsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UpdateBookingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\UpdateBookingForm.Designer.cs">
+      <DependentUpon>UpdateBookingForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Migrations\202311182057322_init.resx">
+      <DependentUpon>202311182057322_init.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202311151810035_init2.resx">
-      <DependentUpon>202311151810035_init2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202311182109512_init2.resx">
+      <DependentUpon>202311182109512_init2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311182124055_init3.resx">
+      <DependentUpon>202311182124055_init3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311202040167_update-somethings.resx">
+      <DependentUpon>202311202040167_update-somethings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311211318442_moved_extra_beds.resx">
+      <DependentUpon>202311211318442_moved_extra_beds.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311211319432_moved_extra_beds2.resx">
+      <DependentUpon>202311211319432_moved_extra_beds2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202311211641214_time_of_creation_invoice.resx">
+      <DependentUpon>202311211641214_time_of_creation_invoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\CustomerBookingsForm.resx">
+      <DependentUpon>CustomerBookingsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\EditBookingForm.resx">
+      <DependentUpon>EditBookingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\EditCustomerForm.resx">
+      <DependentUpon>EditCustomerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\EditInvoiceForm.resx">
+      <DependentUpon>EditInvoiceForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -98,6 +184,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Views\BookingDetailsForm.resx">
+      <DependentUpon>BookingDetailsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
