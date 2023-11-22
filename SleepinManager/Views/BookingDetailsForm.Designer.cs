@@ -152,7 +152,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(308, 285);
+            this.ClientSize = new System.Drawing.Size(412, 299);
             this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.labelRoomSize);
             this.Controls.Add(this.labelExtraBeds);

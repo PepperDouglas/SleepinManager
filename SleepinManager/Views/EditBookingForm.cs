@@ -22,7 +22,6 @@ namespace SleepinManager.Views
         }
 
         public void GetDisplayData() { 
-            //DO NOT INCLUDE OUR CURRENT BOOKING IN THE LIST!!
             Booking booking = BookingRepo.GetBooking(BookingID);
             dateTimePickerCheckIn.Value = booking.StartDate;
             dateTimePickerCheckOut.Value = booking.EndDate;
@@ -33,14 +32,10 @@ namespace SleepinManager.Views
                     listBoxUnAvBookings.Items.Add($"{ aBooking.StartDate.ToShortDateString()} -> { aBooking.EndDate.ToShortDateString()}");    
 
                 }
-            }
-            
+            }           
         }
 
         public void buttonUpdate_Click(object sender, EventArgs e) {
-            //Ändra så att datum innan dages datum inte visas i listan
-
-            //Man kan inte välja slutdatum före eller samma dag som startdatum
             bool unavailable = false;
             for (int i = 0; i < listBoxUnAvBookings.Items.Count; i++) {
                 if (dateFormatSplitter(listBoxUnAvBookings.Items[i].ToString(), dateTimePickerCheckIn.Value.Date, dateTimePickerCheckOut.Value.Date)) {
@@ -51,8 +46,6 @@ namespace SleepinManager.Views
                 MessageBox.Show("Dates are unavailable!");
                 return;
             }
-            //Boxes only shown if room can have extra beds anyway.
-            //Update booking here
             int extraBeds;
             extraBeds = checkBoxBookSingle.Checked == true ? 1 : checkBoxBookDouble.Checked == true ? 2 : 0;
             Booking bookingToUpdate = BookingRepo.GetBooking(BookingID);
@@ -64,23 +57,14 @@ namespace SleepinManager.Views
         }
 
         private bool dateFormatSplitter(string datestring, DateTime checkin, DateTime checkout) {
-            //Must book atleast ONE night!!
-
-            //bokningarna som de ser ut ny
-            
             string[] delimiter = { " -> " };
             string[] dates = datestring.Split(delimiter, System.StringSplitOptions.RemoveEmptyEntries);
             DateTime start = new DateTime(int.Parse(dates[0].Split('-')[0]), int.Parse(dates[0].Split('-')[1]), int.Parse(dates[0].Split('-')[2]));
             DateTime end = new DateTime(int.Parse(dates[1].Split('-')[0]), int.Parse(dates[1].Split('-')[1]), int.Parse(dates[1].Split('-')[2]));
             if ((checkin < start.Date && checkout <= start.Date) || 
-                //!(checkin >= start.Date) ||
                 (checkin >= end.Date && checkout > start.Date)) { 
-                //&& !(checkin < start.Date && checkout >= end.Date)){ 
-                //NYA DATUM UTANFÖR BOKNINGAR SOM FINNS
                 return false;
             }
-            // om nya innan och slut innan gamla, return false
-            // eller om 
             return true;
         }
         private void DisplayCheckBoxes(Room room) {

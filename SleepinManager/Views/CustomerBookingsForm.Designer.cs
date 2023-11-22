@@ -45,18 +45,18 @@
             this.labelRoomSize.AutoSize = true;
             this.labelRoomSize.Location = new System.Drawing.Point(484, 167);
             this.labelRoomSize.Name = "labelRoomSize";
-            this.labelRoomSize.Size = new System.Drawing.Size(41, 13);
+            this.labelRoomSize.Size = new System.Drawing.Size(56, 13);
             this.labelRoomSize.TabIndex = 21;
-            this.labelRoomSize.Text = "label11";
+            this.labelRoomSize.Text = "Roomsize:";
             // 
             // labelExtraBeds
             // 
             this.labelExtraBeds.AutoSize = true;
             this.labelExtraBeds.Location = new System.Drawing.Point(484, 204);
             this.labelExtraBeds.Name = "labelExtraBeds";
-            this.labelExtraBeds.Size = new System.Drawing.Size(41, 13);
+            this.labelExtraBeds.Size = new System.Drawing.Size(60, 13);
             this.labelExtraBeds.TabIndex = 20;
-            this.labelExtraBeds.Text = "label10";
+            this.labelExtraBeds.Text = "Extra beds:";
             // 
             // labelEmail
             // 
@@ -65,79 +65,79 @@
             this.labelEmail.Name = "labelEmail";
             this.labelEmail.Size = new System.Drawing.Size(35, 13);
             this.labelEmail.TabIndex = 19;
-            this.labelEmail.Text = "label9";
+            this.labelEmail.Text = "Email:";
             // 
             // labelPaid
             // 
             this.labelPaid.AutoSize = true;
             this.labelPaid.Location = new System.Drawing.Point(484, 95);
             this.labelPaid.Name = "labelPaid";
-            this.labelPaid.Size = new System.Drawing.Size(35, 13);
+            this.labelPaid.Size = new System.Drawing.Size(78, 13);
             this.labelPaid.TabIndex = 18;
-            this.labelPaid.Text = "label8";
+            this.labelPaid.Text = "Invoice Paid? :";
             // 
             // labelEndDate
             // 
             this.labelEndDate.AutoSize = true;
             this.labelEndDate.Location = new System.Drawing.Point(484, 61);
             this.labelEndDate.Name = "labelEndDate";
-            this.labelEndDate.Size = new System.Drawing.Size(35, 13);
+            this.labelEndDate.Size = new System.Drawing.Size(56, 13);
             this.labelEndDate.TabIndex = 17;
-            this.labelEndDate.Text = "label7";
+            this.labelEndDate.Text = "Checkout:";
             // 
             // labelRoomType
             // 
             this.labelRoomType.AutoSize = true;
             this.labelRoomType.Location = new System.Drawing.Point(320, 204);
             this.labelRoomType.Name = "labelRoomType";
-            this.labelRoomType.Size = new System.Drawing.Size(35, 13);
+            this.labelRoomType.Size = new System.Drawing.Size(61, 13);
             this.labelRoomType.TabIndex = 16;
-            this.labelRoomType.Text = "label6";
+            this.labelRoomType.Text = "Room type:";
             // 
             // labelPhone
             // 
             this.labelPhone.AutoSize = true;
             this.labelPhone.Location = new System.Drawing.Point(320, 167);
             this.labelPhone.Name = "labelPhone";
-            this.labelPhone.Size = new System.Drawing.Size(35, 13);
+            this.labelPhone.Size = new System.Drawing.Size(41, 13);
             this.labelPhone.TabIndex = 15;
-            this.labelPhone.Text = "label5";
+            this.labelPhone.Text = "Phone:";
             // 
             // labelAnnulled
             // 
             this.labelAnnulled.AutoSize = true;
             this.labelAnnulled.Location = new System.Drawing.Point(320, 131);
             this.labelAnnulled.Name = "labelAnnulled";
-            this.labelAnnulled.Size = new System.Drawing.Size(35, 13);
+            this.labelAnnulled.Size = new System.Drawing.Size(97, 13);
             this.labelAnnulled.TabIndex = 14;
-            this.labelAnnulled.Text = "label4";
+            this.labelAnnulled.Text = "Invoice annulled? :";
             // 
             // labelCost
             // 
             this.labelCost.AutoSize = true;
             this.labelCost.Location = new System.Drawing.Point(320, 95);
             this.labelCost.Name = "labelCost";
-            this.labelCost.Size = new System.Drawing.Size(35, 13);
+            this.labelCost.Size = new System.Drawing.Size(31, 13);
             this.labelCost.TabIndex = 13;
-            this.labelCost.Text = "label3";
+            this.labelCost.Text = "Cost:";
             // 
             // labelStartDate
             // 
             this.labelStartDate.AutoSize = true;
             this.labelStartDate.Location = new System.Drawing.Point(320, 61);
             this.labelStartDate.Name = "labelStartDate";
-            this.labelStartDate.Size = new System.Drawing.Size(35, 13);
+            this.labelStartDate.Size = new System.Drawing.Size(49, 13);
             this.labelStartDate.TabIndex = 12;
-            this.labelStartDate.Text = "label2";
+            this.labelStartDate.Text = "Checkin:";
             // 
             // labelCustomerName
             // 
             this.labelCustomerName.AutoSize = true;
             this.labelCustomerName.Location = new System.Drawing.Point(39, 28);
             this.labelCustomerName.Name = "labelCustomerName";
-            this.labelCustomerName.Size = new System.Drawing.Size(35, 13);
+            this.labelCustomerName.Size = new System.Drawing.Size(112, 13);
             this.labelCustomerName.TabIndex = 11;
-            this.labelCustomerName.Text = "label1";
+            this.labelCustomerName.Text = "No bookings available";
             // 
             // listBoxBookings
             // 

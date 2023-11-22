@@ -22,8 +22,6 @@ namespace SleepinManager.Entities
         [Required,StringLength(20)]
         public string Nationality { get; set; }
         
-        //The NationalIdentifier could be either a personal number issued by the state or a passport number,
-        //and is used for security purposes
         [Required, StringLength(18)]
         public string National_Identifier { get; set; }
 

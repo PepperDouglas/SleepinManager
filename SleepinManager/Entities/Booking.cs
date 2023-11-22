@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Runtime.Remoting;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,14 +25,12 @@ namespace SleepinManager.Entities
         public int RoomID { get; set; }
         public int CustomerID { get; set; }
 
-        //[ForeignKey("Invoice")]
-        //public int? InvoiceID { get; set; }
-        //[Required]
+
         public virtual Invoice Invoice { get; set; }
 
-        //[Required]
+
         public virtual Room Room { get; set; }
-        //[Required]
+
         public virtual Customer Customer { get; set; }
 
         public Booking() {
@@ -41,22 +40,45 @@ namespace SleepinManager.Entities
             StartDate = startDate;
             EndDate = endDate;
             ExtraBedCount = bedCount;
-            //Room = room;
-            //Customer = customer;
             RoomID = room.RoomID;
             CustomerID = customer.CustomerID;
-            //Invoice = new Invoice(0, false, false);
         }
 
         public override string ToString() {
-            //change so that it displays the date or something instead of the name.
-            //it the getmethod in bookingrepo doesnt get the updated customer name even though
-            //we can see that its set in the database
             return $"{Customer.FirstName} {Customer.SurName}, Cost: {Invoice.Cost} ";
         }
 
         public string DetailsListString() {
             return $"{StartDate.Date} -> {EndDate.Date}";
+        }
+
+        public int bookingCost(int roomSize, int stayDuration, int extraBeds) {
+            const int singleSmall = 400;
+            const int singleBig = 600;
+            const int DoubleSmall = 800;
+            const int DoubleBig = 1000;
+            
+            int totalCost = 0;
+            
+            switch (roomSize) {
+                case 15:
+                totalCost = singleSmall * stayDuration; 
+                break;
+                case 20: 
+                totalCost = singleBig * stayDuration;
+                break;
+                case 25:
+                totalCost = DoubleSmall * stayDuration;
+                break;
+                case 30:
+                totalCost = DoubleBig * stayDuration;
+                break;
+                case 35:
+                totalCost = DoubleBig * stayDuration;
+                break;
+            }
+            totalCost += extraBeds * 200;
+            return totalCost;
         }
     }
 }

@@ -25,7 +25,6 @@ namespace SleepinManager.Views
         }
 
         public void GetDisplayData() {
-            //Booking booking = BookingRepo.GetBooking(BookingID);
             labelCustomer.Text = $"Invoice for {Booking.Customer.FirstName} {Booking.Customer.FirstName}";
             textBoxPrice.Text = Booking.Invoice.Cost.ToString();
             checkBoxPayment.Checked = Booking.Invoice.HasBeenPaid;

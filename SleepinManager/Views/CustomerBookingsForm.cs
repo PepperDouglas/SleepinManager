@@ -31,8 +31,7 @@ namespace SleepinManager.Views
         }
 
         public void GetDisplayData(Booking booking) {
-            //Booking booking = BookingRepo.GetBooking(BookingID);
-            labelCustomerName.Text = $"Booking for {booking.Customer.FirstName} {booking.Customer.FirstName}";
+            labelCustomerName.Text = $"Booking for {booking.Customer.FirstName} {booking.Customer.SurName}";
             labelStartDate.Text = $"Checkin: {booking.StartDate.ToShortDateString()}";
             labelEndDate.Text = $"Checkout: {booking.EndDate.ToShortDateString()}";
             labelPaid.Text = $"Invoice Paid? : ";
@@ -45,12 +44,10 @@ namespace SleepinManager.Views
             labelRoomSize.Text = $"Roomsize: {booking.Room.RoomSize}";
             labelExtraBeds.Text = $"Extra beds: {booking.ExtraBedCount}";
             labelRoomType.Text = $"Room type: {booking.Room.RoomType.RoomTypeName}";
-
         }
 
         private void buttonClose_Click(object sender, EventArgs e) {
             this.Close();
         }
-
     }
 }

@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -26,7 +27,6 @@ namespace SleepinManager
             ListRooms(condition, dateTimePickerCheckIn.Value, dateTimePickerCheckOut.Value);
         }
 
-        //This should check bookings with some join to get only available rooms later
         public void ListRooms(string condition, DateTime checkIn, DateTime checkOut) {
             RoomRepo _repo = new RoomRepo();
             listBoxRooms.DisplayMember = "ToString";
@@ -37,7 +37,6 @@ namespace SleepinManager
             } else { 
                 listBoxRooms.DataSource = _repo.GetRoomsByFilters(0, checkIn, checkOut);
             }
-
         }
 
         private void buttonSearchCustomer_Click(object sender, EventArgs e) {
@@ -45,19 +44,6 @@ namespace SleepinManager
             listBoxCustomers.DataSource = CustomerRepo.GetCustomersByFilter(textBoxCustomerSearch.Text);
 
         }
-
-        /*
-        private void listBoxCustomers_SelectedIndexChanged(object sender, EventArgs e) {
-            if (SelectionEnabled) {
-                if (listBoxCustomers.SelectedIndex >= 0) {
-                    Customer customer = listBoxCustomers.SelectedItem as Customer;
-                    if (customer != null) {
-                        UpdateDetails(customer);
-                    }
-                }
-            }
-        }
-        */
 
         private void listBoxRooms_SelectedIndexChanged(object sender, EventArgs e) {
             checkBox1Bed.Checked = false; 
@@ -85,7 +71,6 @@ namespace SleepinManager
         }
 
         private void btnBookRoom_Click(object sender, EventArgs e) {
-            //check dates
             if (dateTimePickerCheckIn.Value.Date >= dateTimePickerCheckOut.Value.Date) {
                 MessageBox.Show("Checkout must be after Check-in");
                 return;
@@ -100,31 +85,32 @@ namespace SleepinManager
             }
             int extraBeds;
             extraBeds = checkBox1Bed.Checked == true ? 1 : checkBox2Bed.Checked == true ? 2 : 0;
-            //Invoice newInvoice = new Invoice(0, false, false);
-            //int invoiceID = InvoiceRepo.AddInvoice(newInvoice);
+            
             Booking booking = new Booking(dateTimePickerCheckIn.Value, dateTimePickerCheckOut.Value,
                 (Room)listBoxRooms.SelectedItem, (Customer)listBoxCustomers.SelectedItem, extraBeds);
-            BookingRepo.AddBooking(booking);
+            
+            int stayDuration = (dateTimePickerCheckOut.Value.Date - dateTimePickerCheckIn.Value.Date).Days;
+            int cost = booking.bookingCost(((Room)listBoxRooms.SelectedItem).RoomSize, stayDuration, extraBeds);
+            BookingRepo.AddBooking(booking, cost);
+
+            btnSearchRooms_Click(null, null);
         }
 
         private void buttonSearchBooking_Click(object sender, EventArgs e) {
-
-            // Retrieve updated bookings after updating customer
             listBoxBookings.DataSource = null;
             var updatedBookings = BookingRepo.RetrieveBooking(dateTimePickerBookStart.Value, dateTimePickerBookEnd.Value);
 
-            // Set the data source to null to clear existing data
-
             listBoxBookings.ValueMember = "ToString";
-            // Set the data source to the updated bookings
             listBoxBookings.DataSource = updatedBookings;
-
-            // Refresh the ListBox to reflect the changes
             listBoxBookings.Refresh();
         }
 
         private void buttonRemoveBooking_Click(object sender, EventArgs e) {
-            BookingRepo.DeleteBooking(((Booking)listBoxBookings.SelectedItem).BookingID);
+            if (listBoxBookings.SelectedValue != null) {
+                BookingRepo.DeleteBooking(((Booking)listBoxBookings.SelectedItem).BookingID);
+                buttonSearchBooking_Click(null, null);
+
+            }
         }
 
         private void buttonShowInvoice_Click(object sender, EventArgs e) {
